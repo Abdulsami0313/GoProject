@@ -1,0 +1,16 @@
+<h1>Manage Users</h1>
+{{ $number  := 0 }}
+{{ range .user }}
+<tr>
+    {{ $number = increment $number 1 }}
+    <td>{{ $number }}</td>
+    <td>{{ .Name }}</td>
+    <td>{{ .Email }}</td>
+    <td>{{ .Address }}</td>
+    <td>{{ .Phone }}</td>
+    <!-- <td>
+        <button data-id="{{ .Id }}" class="btn btn-danger  delete-student">Delete</button>
+        <button data-id="{{ .Id }}" class="btn btn-success  edit-student">Edit</button>
+    </td> -->
+</tr>
+{{ end }}

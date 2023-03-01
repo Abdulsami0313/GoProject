@@ -1,0 +1,15 @@
+{{ $number  := 0 }}
+{{ range .teacher }}
+<tr>
+    {{ $number = increment $number 1 }}
+    <td>{{ $number }}</td>
+    <td>{{ .TeacherName }}</td>
+    <td>{{ .Position }}</td>
+    <td>{{ .Description }}</td>
+    <td> <img src="../static/uploads/teachers/{{ .Image }}" height="50" width="50" alt="Image"></td>
+    <td>
+        <button data-id="{{ .Id }}" class="btn btn-danger  delete-student">Delete</button>
+        <button data-id="{{ .Id }}" class="btn btn-success  edit-student">Edit</button>
+    </td>
+</tr>
+{{ end }}

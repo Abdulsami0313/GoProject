@@ -1,0 +1,17 @@
+{{ $number  := 0 }}
+{{ range .assignment }}
+<tr>
+    {{ $number = increment $number 1 }}
+    <td>{{ $number }}</td>
+    <td>{{ .Title }}</td>
+    <td>{{ .Assignment }}</td>
+    <td>{{ .DueDate }}</td>
+    <td>{{ .TotalMarks }}</td>
+    <td>{{ .Submit }}</td>
+    <td>{{ .Result }}</td>
+    <td>
+        <button data-id="{{ .Id }}" class="btn btn-danger  delete-student">Delete</button>
+        <button data-id="{{ .Id }}" class="btn btn-success  edit-student">Edit</button>
+    </td>
+</tr>
+{{ end }}

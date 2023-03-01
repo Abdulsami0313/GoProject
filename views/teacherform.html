@@ -1,0 +1,46 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ .title }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="form-student" action="/teacher/store" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+            <div class="form-group">
+               <label for="">Teacher Name</label>
+               <input type="text" name="teachername" id="teachername" value="{{ .teacher.TeacherName }}" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="">Position</label>
+                <input type="text" name="position" id="position" value="{{ .teacher.Position }}" class="form-control">
+             </div>
+             <div class="form-group">
+                <label for="">Teacher Description</label>
+                <textarea name="description" class="form-control" id="description" cols="30" rows="10">{{ .teacher.Description }}</textarea>
+             </div>
+
+
+             <div class="form-group">
+               <label for="">Image</label>
+               <input type="file" name="image"  value="" id="file" class="form-control">
+            </div>
+            {{ if .teacher.Id }}
+            <div>
+               <img src="../static/uploads/teachers/{{ .teacher.Image }}" height="50" width="50" alt="Image">
+            </div>
+            {{end}}
+            
+          </div>
+          <div class="modal-footer">
+            {{ if .teacher.Id }}
+            <input type="hidden" name="id" id="id" value="{{ .teacher.Id }}">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Change Data</button>
+            {{else}}
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save Data</button>
+            {{end}}
+          </div>
+      </form>
+    </div>
+  </div>

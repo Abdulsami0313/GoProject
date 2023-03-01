@@ -1,0 +1,11 @@
+{{ $number  := 0 }}
+{{ range .assignment }}
+<tr>
+    {{ $number = increment $number 1 }}
+    <td>{{ $number }}</td>
+    <td>{{ .Title }}</td>
+    <td>{{ .Assignment }}</td>
+    <td>{{ .DueDate }}</td>
+    <td>{{ .TotalMarks }}</td>
+</tr>
+{{ end }}
